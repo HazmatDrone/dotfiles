@@ -20,6 +20,7 @@ set constantshow
 set tabsize 4 #More sensible tabs!
 set zap #If you select a bunch of text, deleting it actually deletes all of it
 set mouse #Mouse control!
+set autoindent #Auto indentation when you make a newline
 bind ^L linenumbers main #Hitting ^L toggles showing line numbers!
 
 #Spellchecker, in nano!?
