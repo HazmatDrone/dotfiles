@@ -4,7 +4,7 @@ if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-if [ ! (-d "$HOME/.oh-my-zsh" | -d "/usr/share/oh-my-zsh") ]; then
+if [[ ! (-d "$HOME/.oh-my-zsh" || -d "/usr/share/oh-my-zsh") ]]; then
 	git clone https://github.com/robbyrussell/oh-my-zsh $HOME/.oh-my-zsh
 fi
 
