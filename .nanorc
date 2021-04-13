@@ -31,6 +31,8 @@ bind ^s speller all
 #Undo and redo!
 bind ^Z undo all
 bind ^Y redo all
+bind M-Z suspend all
+set suspendable
 
 # Get rid of useless binds
 unbind ^H all
