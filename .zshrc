@@ -28,7 +28,7 @@
 		export ZSH="$HOME/.oh-my-zsh"
 	fi
 
-	source .zsh_install_plugins.sh
+	source $HOME/.zsh_install_plugins.sh
 	source $ZSH/oh-my-zsh.sh
 
 # Environmental Variables
