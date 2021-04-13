@@ -1,11 +1,12 @@
 #!/bin/bash
-source /etc/profile
+#source /etc/profile
 
 export EDITOR=/usr/bin/nano
 export PATH="/home/resin/.gem/ruby/2.7.0/bin:$PATH"
 export PROFILE="worked"
 
 # Aliases and Functions
+
 if [[ -n $(command -v exa) ]]; then
 	alias ls="exa -lgF --git"
 else
@@ -14,6 +15,7 @@ fi
 	alias rm="rm -rv"
 	alias mv="mv -v"
 	alias cp="cp -rv"
+	alias cg="cd '$(git rev-parse --show-toplevel)'"
 	alias mkdir="mkdir -pv"
 	alias hexdump="hexdump -C"
 	alias watch="watch -c"
