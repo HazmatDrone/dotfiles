@@ -1,0 +1,1 @@
+/home/resin/.dotfiles/.oh-my-zsh/custom/themes/bira-custom.zsh-theme

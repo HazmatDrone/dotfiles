@@ -1,0 +1,41 @@
+# Includes all the syntax highlighting
+include "/usr/share/nano/*.nanorc"
+
+# set element 		fgcolor,bgcolor
+set titlecolor		green,black
+set statuscolor 	green,black
+set errorcolor		brightwhite,red
+set selectedcolor	brightwhite,magenta
+set stripecolor 	,yellow
+set numbercolor 	cyan
+set keycolor 		green,black
+set functioncolor 	white
+
+#Makes nano smaller and show more useful info at the same time
+set nohelp
+set minibar
+set constantshow
+
+#Useful things
+set tabsize 4 #More sensible tabs!
+set zap #If you select a bunch of text, deleting it actually deletes all of it
+set mouse #Mouse control!
+bind ^L linenumbers main #Hitting ^L toggles showing line numbers!
+
+#Spellchecker, in nano!?
+set speller hunspell
+bind ^s speller all
+
+#Undo and redo!
+bind ^Z undo all
+bind ^Y redo all
+
+# Get rid of useless binds
+unbind ^H all
+unbind ^D all
+unbind ^B all
+unbind ^F all
+unbind ^P all
+unbind ^N all
+unbind ^V all
+
