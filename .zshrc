@@ -2,15 +2,15 @@
 # Start TMUX/SCREEN
 	if [[ -z $STY && -z $TMUX ]]; then
 		if [[ -n $(command -v tmux) ]]; then
-			if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
-				git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-			fi
 			tmux attach -t Main || tmux new -s Main && exit
 
 		elif [[ -n $SSH_CONNECTION ]]; then
 			screen -x -R -U -p+  && exit
 		fi
 	fi
+
+# Install plugins/dependencies
+source .zsh_install_plugins.sh
 
 # oh-my-zsh config
 	ZSH_THEME="bira-custom"
@@ -27,15 +27,9 @@
 	if [ -d "/usr/share/oh-my-zsh" ]; then
 		export ZSH="/usr/share/oh-my-zsh"
 	else
-		if [ ! -d "$HOME/.oh-my-zsh" ]; then
- 			git clone https://github.com/robbyrussell/oh-my-zsh .oh-my-zsh
-		fi
 		export ZSH="$HOME/.oh-my-zsh"
 	fi
 	export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
-	if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting" ]; then
-		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-	fi
 	source $ZSH/oh-my-zsh.sh
 
 
