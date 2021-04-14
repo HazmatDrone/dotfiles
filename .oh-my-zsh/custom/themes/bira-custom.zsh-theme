@@ -16,10 +16,7 @@ else
     local user_symbol='$'
 fi
 
-if [[ $(git_repo_name) != $USER ]]; then
-	local git_branch='$(git_prompt_info)'
-fi
-
+local git_branch='$(if [[ $(git_repo_name) && $(git rev-parse --show-toplevel) != $HOME ]]; then git_prompt_info; fi)'
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~ %{$reset_color%}'
 local rvm_ruby='$(ruby_prompt_info)'
 local venv_prompt='$(virtualenv_prompt_info)'
