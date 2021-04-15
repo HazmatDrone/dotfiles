@@ -16,3 +16,7 @@ fi
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+if [[ ! -d "$HOME/.tmux/tdab" ]]; then
+	git clone https://github.com/uriel1998/tdab $HOME/.tmux/tdab
+fi

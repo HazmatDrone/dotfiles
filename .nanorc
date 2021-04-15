@@ -7,14 +7,18 @@ set statuscolor 	green,black
 set errorcolor		brightwhite,red
 set selectedcolor	brightwhite,magenta
 set stripecolor 	,yellow
-set numbercolor 	cyan
+set numbercolor 	lightblack
 set keycolor 		green,black
 set functioncolor 	white
 
 #Makes nano smaller and show more useful info at the same time
-set nohelp
-set minibar
-set constantshow
+set nohelp #Hides helptext
+set minibar #Hides topbar, replaces with small minibar
+
+set constantshow #Always show the cursor pos on the bar
+set stateflags #Show flags for when indentation, wrapping etc are on
+
+set positionlog #Remembers where we were in the file
 
 #Useful things
 set tabsize 4 #More sensible tabs!
@@ -22,11 +26,9 @@ set zap #If you select a bunch of text, deleting it actually deletes all of it
 set mouse #Mouse control!
 set autoindent #Auto indentation when you make a newline
 set multibuffer #Open more than one file!?
-bind ^L linenumbers main #Hitting ^L toggles showing line numbers!
-
-#Spellchecker, in nano!?
-set speller hunspell
-bind ^s speller all
+set linenumbers #Show linenumbers on the left
+bind ^J linenumbers main #Hitting ^I toggles showing line numbers
+bind ^L copy all #Copy with ^L
 
 #Undo and redo!
 bind ^Z undo all
