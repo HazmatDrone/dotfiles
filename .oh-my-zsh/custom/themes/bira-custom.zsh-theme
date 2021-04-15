@@ -24,11 +24,11 @@ local venv_prompt='$(virtualenv_prompt_info)'
 
 ZSH_THEME_RVM_PROMPT_OPTIONS="i v g"
 
-local P1_LONG="╭─${user_host}${current_dir}${rvm_ruby}${git_branch}${venv_prompt}
-╰─%B${user_symbol}%b"
-local P1_SHORT="╭─${user_host}${current_dir_short}${rvm_ruby}${git_branch}${venv_prompt}
-╰─%B${user_symbol}%b"
-PROMPT="$(if [[ $(expr length "${P1_LONG}") < $COLUMNS ]]; then echo $P1_LONG; else echo $P1_SHORT; fi)"
+local P1_LONG="╭─${user_host}${current_dir}${rvm_ruby}${git_branch}${venv_prompt}"
+local P1_SHORT="╭─${user_host}${current_dir_short}${rvm_ruby}${git_branch}${venv_prompt}"
+local PROMPT='$(if [[ $(expr length "$(print -P "$P1_LONG" | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"
+)") -lt $COLUMNS ]]; then print -P $P1_LONG; else print -P $P1_SHORT; fi)
+╰─%B${user_symbol}%b'
 RPROMPT="%B${return_code}%b"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
