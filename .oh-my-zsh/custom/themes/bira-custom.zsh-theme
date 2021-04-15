@@ -18,13 +18,17 @@ fi
 
 local git_branch='$(if [[ $(git_repo_name) && $(git rev-parse --show-toplevel) != $HOME ]]; then git_prompt_info; fi)'
 local current_dir='%{$terminfo[bold]$fg[blue]%}%~ %{$reset_color%}'
+local current_dir_short='%{$terminfo[bold]$fg[blue]%}%1~ %{$reset_color%}'
 local rvm_ruby='$(ruby_prompt_info)'
 local venv_prompt='$(virtualenv_prompt_info)'
 
 ZSH_THEME_RVM_PROMPT_OPTIONS="i v g"
 
-PROMPT="╭─${user_host}${current_dir}${rvm_ruby}${git_branch}${venv_prompt}
-╰─%B${user_symbol}%b "
+local P1_LONG="╭─${user_host}${current_dir}${rvm_ruby}${git_branch}${venv_prompt}"
+local P1_SHORT="╭─${user_host}${current_dir_short}${rvm_ruby}${git_branch}${venv_prompt}"
+local PROMPT='$(if [[ $(expr length "$(print -P "$P1_LONG" | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"
+)") -le $COLUMNS ]]; then print -P $P1_LONG; else print -P $P1_SHORT; fi)
+╰─%B${user_symbol}%b'
 RPROMPT="%B${return_code}%b"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
