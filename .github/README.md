@@ -13,7 +13,7 @@ My dotfiles. Mostly concerned with making `zsh` and `tmux` pretty and useable, m
 	* Completely riced the status bar with a CPU and RAM readout and a little indicator for when you've just pressed `^A`
 	* Set it up to work with the system clipboard 'proprely' in copy mode
 	* Fixed scrolling in less/man (you can add any other applications you need to to the list!)
-
+* `.XCompose` just adds some Greek symbols to my compose key: `α`, `β`, `γ`, `π`, `θ`, `Ω`, `ω`, all useful for math and engineering.
 If you plan on using my dotfiles I'd highly recommend ripping them to pieces and using the pieces you find most relevant to you. Better learning curve that way.
 
 # Rice Resources
