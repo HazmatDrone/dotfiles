@@ -6,12 +6,16 @@ export PATH="/home/resin/.gem/ruby/2.7.0/bin:$PATH"
 export PROFILE="worked"
 
 # Aliases and Functions
-
-if [[ -n $(command -v exa) ]]; then
-	alias ls="exa -lgF --git"
-else
-	alias ls="ls -l"
-fi
+	ls_fn(){
+		if [[ $COLUMNS -gt 75 ]]; then LFLAG='-l';
+		else LFLAG=""; fi
+		if [[ -n $(command -v exa) ]]; then
+			exa $LFLAG -gF --git $@
+		else
+			ls $LFLAG $@
+		fi
+	}
+	alias ls=ls_fn
 	alias rm="rm -rv"
 	alias mv="mv -v"
 	alias cp="cp -rv"
