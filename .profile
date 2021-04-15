@@ -2,17 +2,13 @@
 #source /etc/profile
 
 export EDITOR=/usr/bin/nano
-export PATH="/home/resin/.gem/ruby/2.7.0/bin:$PATH"
-export PROFILE="worked"
 
 # Aliases and Functions
 	ls_fn(){
-		if [[ $COLUMNS -gt 75 ]]; then LFLAG='-l';
-		else LFLAG=""; fi
-		if [[ -n $(command -v exa) ]]; then
-			exa $LFLAG -gF --git $@
-		else
-			ls $LFLAG $@
+		if [[ $COLUMNS -gt 75 ]]; then LFLAG='-l'; fi
+		if [[ -n $(command -v exa) ]]
+			then exa $LFLAG -gF --git $@
+			else ls $LFLAG $@
 		fi
 	}
 	alias ls=ls_fn
@@ -38,4 +34,6 @@ export PROFILE="worked"
 	alias fucking="sudo"
 
 # Set PATH so it includes local bin
+	PATH="$PATH:/home/resin/.gem/ruby/2.7.0/bin"
 	PATH="$PATH:$HOME/.local/bin"
+
