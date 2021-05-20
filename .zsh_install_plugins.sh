@@ -10,7 +10,11 @@ else
 fi
 
 if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting" ]; then
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+fi
+
+if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-256color" ]; then
+	git clone https://github.com/chrissicool/zsh-256color $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 fi
 
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
