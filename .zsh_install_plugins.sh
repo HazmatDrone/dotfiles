@@ -14,7 +14,7 @@ if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting" ]; then
 fi
 
 if [ ! -d "${ZSH_CUSTOM}/plugins/zsh-256color" ]; then
-	git clone https://github.com/chrissicool/zsh-256color $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+	git clone https://github.com/chrissicool/zsh-256color $ZSH_CUSTOM/plugins/zsh-syntax-256color
 fi
 
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
